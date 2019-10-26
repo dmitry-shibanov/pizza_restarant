@@ -1,0 +1,23 @@
+<%- include('../includes/header') %>
+<link rel="stylesheet" href="/css/app.css">
+<link rel="stylesheet" href="/css/description-product.css">
+</head>
+
+<body>
+    <div>
+        <%- include('../includes/navigation') %>
+        <div class="container mt-5">
+            <div class="col-md-8 mx-auto">
+                <img src="<%= product.imageUrl %>" alt="Responsive image" class="img-fluid">
+
+            </div>
+        </div>
+
+        <div class="container">
+            <h3 class="display-4"><%= product.name %></h3>
+            <p>
+                <%= product.description %>
+            </p>
+        </div>
+    </div>
+        <%- include('../includes/end') %>

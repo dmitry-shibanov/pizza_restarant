@@ -1,0 +1,54 @@
+<%- include('../includes/header') %>
+<link rel="stylesheet" href="/css/app.css">
+</head>
+
+<body>
+    <%- include('../includes/navigation') %>
+    <div class="mt-5">
+
+    <div class="container mt-5">
+        <form action="/admin/<% if (action){ %>update<% }else{ %>create<% } %>" method="post">
+
+            <h3 class="h3 text-center my-4">Создание продукта</h3>
+
+            <div class="form-group">
+
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-pizza-slice"></i></span>
+                    </div>
+                    <input type="text" name="name" id="name" class="form-control" placeholder="Название" value="<% if (action) { %><%= product.name %><% } %>">
+                </div>
+
+                <div class="input-group my-4">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
+                    </div>
+                    <input type="number" name="price" id="price" class="form-control" placeholder="Цена" value="<% if (action) { %><%= product.price %><% } %>">
+                </div>
+
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-align-justify"></i></span>
+                    </div>
+                    <textarea name="description" id="description" rows="10" class="form-control" placeholder="Описание"><% if (action) { %><%= product.description %><% } %></textarea>
+                </div>
+
+                <div class="input-group my-4">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-images"></i></span>
+                    </div>
+                    <input type="text" name="imageUrl" id="imageUrl" class="form-control" placeholder="изображение" value="<% if (action) { %><%= product.imageUrl %><% } %>">
+                </div>
+
+            </div>
+            <% if(action){ %>
+                <input type="hidden" name="productId" value="<% if (action) { %><%= product._id %><% } %>">
+                <% } %>
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <input type="submit" class="btn btn-info btn-block" value="Создать">
+        </form>
+    </div>
+</div>
+
+    <%- include('../includes/end') %>

@@ -1,0 +1,44 @@
+<link rel="stylesheet" href="/css/app.css">
+<style>
+    body,
+    html {
+        height: 90%;
+    }
+</style><%- include('../includes/header') %>
+</head>
+
+<body>
+    <%- include('../includes/navigation') %>
+    <div class="container h-100">
+        <div class="row h-100 justify-content-center align-items-center">
+            <div class="col-12">
+                <div class="container border rounded p-4" style="max-width: 400px;">
+                    <form action="login/" method="post">
+
+                        <h3 class="h3 text-center my-4">Войти</h3>
+
+                        <div class="form-group">
+
+                            <div class="input-group my-4">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-user-circle"></i></span>
+                                </div>
+                                <input type="text" name="email" id="" class="form-control" placeholder="логин">
+                            </div>
+
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-unlock-alt"></i></span>
+                                </div>
+                                <input type="password" name="password" id="" class="form-control" placeholder="пароль">
+                            </div>
+
+                        </div>
+                        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                        <input type="submit" class="btn btn-info btn-block" value="Войти">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%- include('../includes/end') %>

@@ -1,0 +1,38 @@
+<%- include('../includes/header') %>
+<link rel="stylesheet" href="/css/app.css">
+</head>
+
+
+<body>
+    <div>
+        <%- include('../includes/navigation') %>
+
+        <div class="container mt-5">
+            <ul class="list-group">
+                <% items.forEach(item=>{ %>
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-7">
+                            <%= item.product.description %>
+                        </div>
+                        <div class="col-md-4 mx-righ">
+                            <img src="<%= item.product.imageUrl %>" alt="Responsive image" class="img-fluid"
+                                style="max-height: 120px">
+                        </div>
+                        <div class="col-1">
+                            <span class="badge badge-primary badge-pill"><%= item.quantity %></span>
+                        </div>
+                    </div>
+                </li>
+                <% }) %>
+            </ul>
+        </div>
+        <!-- <h1 class="display-4 m-3">Цена: </h1> -->
+        <div class="container my-5">
+            <form action="makeOrder/" method="post">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                <input type="submit" value="Заказать" class="btn btn-outline-primary">
+            </form>
+        </div>
+    </div>
+    <%- include('../includes/end') %>

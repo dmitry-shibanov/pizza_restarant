@@ -1,0 +1,34 @@
+<nav class="navbar navbar-light navbar-expand-lg sticky-top" id="mainNavbar">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNav">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse navbar-light" id="myNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a href="/" class="navbar-brand">Пиццерия</a>
+            </li>
+            <li class="nav-item">
+                <a href="/pizza-all" class="nav-link">Пицца</a>
+            </li>
+            <li class="nav-item">
+                <a href="" class="nav-link">Закуски</a>
+            </li>
+            <li class="nav-item">
+                <a href="" class="nav-link">Суши</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <% if(!authenticated){ %>
+            <a href="/regestration" class="btn btn-outline-primary nav-link">Зарегестрироваться</a>
+            <a href="/login" class="btn btn-outline-primary nav-link">Войти</a>
+            <% }else{ %>
+            <a class="btn btn-link" href="/cart"><i class="fas fa-shopping-cart"></i></a>
+
+            <form action="logout/" method="POST">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                <input type="submit" class="btn btn-outline-primary nav-link" value="Выйти">
+            </form>
+            <% } %>
+        </ul>
+    </div>
+</nav>

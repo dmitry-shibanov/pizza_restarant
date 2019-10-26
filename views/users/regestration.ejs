@@ -1,0 +1,73 @@
+<%- include('../includes/header') %>
+<link rel="stylesheet" href="/css/app.css">
+<style>
+    body,
+    html {
+        height: 90%;
+    }
+</style>
+</header>
+
+<body>
+    <%- include('../includes/navigation') %>
+    <!-- <div class="container h-100">
+        <div class="row h-100 justify-content-center align-items-center">
+            <form class="col-12">
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Example label</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">Another label</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+                </div>
+            </form>
+        </div>
+    </div> -->
+    <div class="container h-100">
+    <div class="row h-100 justify-content-center align-items-center">
+        <div class="col-12">
+        <div class="container border rounded p-4" style="max-width: 400px;">
+            <form action="regestration/" method="post">
+
+                <h3 class="h3 text-center my-4">Регистрация</h3>
+
+                <div class="form-group">
+
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-paper-plane"></i></span>
+                        </div>
+                        <input type="email" name="mail" id="mail" class="form-control" placeholder="почта">
+                    </div>
+
+                    <div class="input-group my-4">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user-circle"></i></span>
+                        </div>
+                        <input type="text" name="login" id="" class="form-control" placeholder="логин">
+                    </div>
+
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-unlock-alt"></i></span>
+                        </div>
+                        <input type="password" name="password1" id="" class="form-control" placeholder="пароль">
+                    </div>
+
+                    <div class="input-group my-4">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-unlock-alt"></i></span>
+                        </div>
+                        <input type="password" name="password2" id="" class="form-control" placeholder="пароль">
+                    </div>
+
+                </div>
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                <input type="submit" class="btn btn-info btn-block" value="Зарегестрироваться">
+            </form>
+        </div>
+    </div>
+    </div>
+</div>
+    <%- include('../includes/end') %>
